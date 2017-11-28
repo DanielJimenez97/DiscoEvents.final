@@ -25,6 +25,7 @@ import static com.brandi.discoevents.R.id.listPopWindow;
 
 /**
  * Created by Daniel on 11/25/2017.
+ * Class is called om calendar button click to pop up and display events on a day
  */
 
 public class Pop extends Activity {
@@ -38,15 +39,17 @@ public class Pop extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.popwindow);
+        setContentView(R.layout.popwindow); // sets content to popup window exml
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        DisplayMetrics dm = new DisplayMetrics(); // creates variable and is initialized using the system
+        //screen size
+        getWindowManager().getDefaultDisplay().getMetrics(dm); // sets the dm variable to screen display size
 
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
+        int width = dm.widthPixels; //width variable set by screen dimensions
+        int height = dm.heightPixels; //height variable set by screen dimensions
 
-        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
+        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8)); // sets window layout
+        //to be 80% of width and height
 
         // New instance of text view to change the date on the pop up to display the date the user clicked
         TextView textDate = (TextView) findViewById(R.id.textHeader);

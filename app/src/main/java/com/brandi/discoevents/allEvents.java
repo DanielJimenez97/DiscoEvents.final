@@ -39,6 +39,7 @@ public class allEvents extends AppCompatActivity {
     // This will hold our collection of com.brandi.disco events.EventData Objects that will be printed to the screen
     final ArrayList<EventData> events = new ArrayList<EventData>();
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -71,8 +72,9 @@ public class allEvents extends AppCompatActivity {
         setContentView(R.layout.all_events);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.navigation_dashboard);
         // Get a reference to our Events
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
