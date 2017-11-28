@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import static com.brandi.discoevents.R.id.listPopWindow;
 
 /**
- * Created by Owner on 11/25/2017.
+ * Created by Daniel on 11/25/2017.
  */
 
 public class Pop extends Activity {
@@ -46,8 +47,6 @@ public class Pop extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
-
-       // Toast.makeText(Pop.this, " " + date, Toast.LENGTH_LONG).show();
 
         // New instance of text view to change the date on the pop up to display the date the user clicked
         TextView textDate = (TextView) findViewById(R.id.textHeader);
@@ -92,6 +91,18 @@ public class Pop extends Activity {
         ListView listview = (ListView) findViewById(listPopWindow);
         ListAdapter eventAdapter = new CustomAdapter(this, events);
         listview.setAdapter(eventAdapter);
+
+        listview.setOnItemClickListener(
+            new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    // This is the code that allows the tagSearch button to take the app to the tagSearchCheckboxes class/fragment
+                    EventData data = (EventData) parent.getItemAtPosition(position);
+                    g.addBookmarks(data);
+                    Toast.makeText(getApplicationContext(), "Added Event to Bookmark", Toast.LENGTH_SHORT).show();
+               }
+            }
+        );
     }
 
     private void showListNow() {
