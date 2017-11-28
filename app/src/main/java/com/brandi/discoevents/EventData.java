@@ -1,7 +1,7 @@
 package com.brandi.discoevents;
 
 /**
- * Created by Owner on 11/25/2017.
+ * Created by Brandi Werner on 11/25/2017.
  */
 
 public class EventData {

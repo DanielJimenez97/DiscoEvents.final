@@ -1,5 +1,7 @@
 package com.brandi.discoevents;
 
+import java.util.ArrayList;
+
 /**
  * Created by Owner on 11/25/2017.
  */
@@ -16,6 +18,9 @@ public class globals {
     private int Month;
     private int Day;
     private int Year;
+
+    private ArrayList<EventData> bookmarks = new ArrayList<EventData>();
+
     // To stop calling from other classes
     private globals(){
         CS=false;
@@ -25,6 +30,19 @@ public class globals {
         Month=0;
         Day=0;
         Year=0;
+    }
+
+
+    public void deleteBookmark(EventData event){
+        bookmarks.remove(event);
+    }
+
+    public ArrayList<EventData> getBookmarks() {
+        return bookmarks;
+    }
+
+    public void addBookmarks(EventData event) {
+        bookmarks.add(event);
     }
 
     public int getDay() {
