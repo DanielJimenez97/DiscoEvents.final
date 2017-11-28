@@ -55,6 +55,7 @@ public class Pop extends Activity {
         TextView textDate = (TextView) findViewById(R.id.textHeader);
         textDate.setText("Events on " + date + ":");
 
+
         // Get a reference to our Events
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
